@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tributação dos Investimentos | Éderson Porto</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#0d1117;
+  --dark2:#111827;
+  --dark3:#1a2332;
+  --navy:#0f2044;
+  --blue:#1a3a6e;
+  --blue2:#1e4d9b;
+  --gold:#c9a84c;
+  --gold2:#e8c96a;
+  --white:#ffffff;
+  --gray:#b0bac8;
+  --gray2:#d0d8e4;
+}
+body{font-family:'Poppins',sans-serif;color:var(--white);background:var(--dark);line-height:1.6}
+a{text-decoration:none;color:inherit}
+
+/* Botões */
+.btn{display:inline-block;background:linear-gradient(135deg,#b8922a 0%,#f0d060 45%,#e8c070 55%,#b8922a 100%);color:#111;font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;padding:18px 40px;border-radius:6px;cursor:pointer;border:none;text-align:center;transition:transform .2s,box-shadow .2s;text-decoration:none;width:100%;max-width:520px;display:block;margin:0 auto}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(201,168,76,.5)}
+
+/* Layout */
+section{padding:80px 20px}
+.container{max-width:900px;margin:0 auto}
+.s-dark{background:var(--dark2)}
+.s-darker{background:var(--dark)}
+.s-navy{background:linear-gradient(180deg,var(--dark2) 0%,var(--navy) 100%)}
+.s-light{background:var(--dark3)}
+
+/* Hero */
+.hero{background:#05080f;padding:0;position:relative;overflow:hidden;min-height:100vh;display:flex;align-items:center}
+.hero-bg-gradient{position:absolute;inset:0;background:radial-gradient(ellipse at top right,rgba(15,32,68,.8) 0%,#05080f 60%);z-index:0;pointer-events:none}
+
+.hero-book-desktop{display:none;position:absolute;right:0;top:0;width:50%;height:100%;z-index:0;overflow:hidden;pointer-events:none;align-items:center;justify-content:center}
+.hero-book-desktop::before{content:'';position:absolute;left:0;top:0;width:40%;height:100%;background:linear-gradient(to right,#05080f 0%,rgba(5,8,15,.9) 40%,transparent 100%);z-index:1}
+.hero-book-desktop img{width:auto;height:72%;max-height:580px;object-fit:contain;display:block;margin:0 auto;position:relative;z-index:0;filter:drop-shadow(0 40px 80px rgba(0,0,0,.7))}
+.book-ph{width:260px;height:380px;background:linear-gradient(135deg,#0f2044 0%,#1a3a6e 100%);border:1px solid rgba(201,168,76,.35);border-radius:6px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:28px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.6),-6px 6px 20px rgba(0,0,0,.4);position:relative;z-index:0}
+.book-ph-label{font-size:.55rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.book-ph-title{font-size:.9rem;font-weight:800;color:#fff;line-height:1.3;margin-bottom:16px}
+.book-ph-divider{width:36px;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2));margin:0 auto 14px}
+.book-ph-sub{font-size:.65rem;color:var(--gray);line-height:1.5}
+
+.hero-book-mobile{display:block;position:absolute;left:0;top:0;width:100%;height:55vh;z-index:0;overflow:hidden;pointer-events:none;display:flex;align-items:center;justify-content:center}
+.hero-book-mobile::after{content:'';position:absolute;left:0;right:0;bottom:0;height:85%;background:linear-gradient(to top,rgba(5,8,15,1) 0%,rgba(5,8,15,.95) 25%,rgba(5,8,15,.6) 55%,rgba(5,8,15,0) 100%);z-index:10}
+.book-ph-sm{width:145px;height:210px;background:linear-gradient(135deg,#0f2044 0%,#1a3a6e 100%);border:1px solid rgba(201,168,76,.3);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px;text-align:center;box-shadow:0 16px 40px rgba(0,0,0,.5);margin:0 auto}
+
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;padding:0 24px;position:relative;z-index:10;padding-top:52vh;padding-bottom:56px}
+.hero-content{max-width:100%;display:flex;flex-direction:column;align-items:flex-start}
+.hero-brand{display:flex;align-items:center;gap:14px;margin-bottom:36px}
+.hero-brand-icon{font-size:2rem;color:var(--gold);line-height:1}
+.hero-brand-text{display:flex;flex-direction:column}
+.hero-brand-label{font-size:.65rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);line-height:1;margin-bottom:2px}
+.hero-brand-name{font-size:1.15rem;font-weight:800;color:#fff;line-height:1.1;letter-spacing:.04em}
+.hero h1{font-size:clamp(1.4rem,2.8vw,2.3rem);font-weight:800;line-height:1.25;margin-bottom:20px;color:#fff}
+.hero h1 em{color:var(--gold2);font-style:normal}
+.hero p{font-size:.95rem;color:var(--gray);margin-bottom:14px;line-height:1.8}
+.hero p:last-of-type{margin-bottom:36px}
+
+@media(min-width:1024px){
+  .hero-book-desktop{display:flex}
+  .hero-book-mobile{display:none}
+  .hero-inner{padding-top:0;padding-bottom:0;padding-left:48px;padding-right:48px;min-height:100vh;display:flex;align-items:center}
+  .hero-content{max-width:56%}
+}
+
+/* Marquee */
+.marquee-wrap{background:linear-gradient(90deg,#7a5c10,#b8922a,#7a5c10);padding:13px 0;overflow:hidden}
+.marquee{display:flex;white-space:nowrap;animation:marquee 30s linear infinite}
+.marquee span{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;padding-right:48px;opacity:.9}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* Tipografia geral */
+.section-title{font-size:clamp(1.3rem,3vw,2rem);font-weight:700;line-height:1.25;margin-bottom:24px;color:#fff}
+.section-title em{color:var(--gold2);font-style:normal}
+.section-sub{font-size:.95rem;color:var(--gray);margin-bottom:24px;line-height:1.75}
+.section-sub strong{color:#fff}
+
+/* Divisores */
+.divider{width:56px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;margin:0 auto 20px}
+.divider-left{width:56px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:2px;margin:0 0 20px}
+
+/* Destaque */
+.destaque-box{background:linear-gradient(135deg,rgba(201,168,76,.1),rgba(201,168,76,.04));border:1px solid rgba(201,168,76,.3);border-radius:14px;padding:36px 40px;max-width:720px;margin:0 auto 40px}
+.destaque-box p{font-size:1.05rem;color:var(--gray2);line-height:1.85}
+.destaque-box p strong{color:var(--gold2)}
+
+/* Depoimentos */
+.dep-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:40px}
+.dep-card{background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:32px 28px;display:flex;flex-direction:column}
+.dep-photo{width:68px;height:68px;border-radius:50%;background:linear-gradient(135deg,var(--dark3),var(--navy));border:2px solid rgba(201,168,76,.3);margin-bottom:16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:rgba(201,168,76,.4);flex-shrink:0;overflow:hidden}
+.dep-photo img{width:100%;height:100%;object-fit:cover}
+.dep-name{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:4px}
+.dep-cargo{font-size:.78rem;color:var(--gold2);margin-bottom:16px;line-height:1.4}
+.dep-text{font-size:.86rem;color:var(--gray);line-height:1.8;font-style:italic}
+
+/* Quem é */
+.quem-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.quem-photo{border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.5)}
+.quem-photo img{width:100%;height:auto;display:block}
+.quem-ph{aspect-ratio:4/5;background:linear-gradient(135deg,var(--dark3),var(--navy));border:1px solid rgba(201,168,76,.2);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:3rem;color:rgba(201,168,76,.3)}
+.quem-content h2{font-size:clamp(1.3rem,3vw,1.9rem);font-weight:700;margin-bottom:20px;color:var(--white)}
+.quem-content p{color:var(--gray);margin-bottom:14px;font-size:.93rem;line-height:1.75}
+.quem-content p strong{color:#fff}
+
+/* Capítulos */
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:40px}
+.cap-card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:18px 22px;display:flex;gap:16px;align-items:flex-start}
+.cap-num{font-size:1.4rem;font-weight:900;color:var(--gold2);line-height:1;flex-shrink:0;min-width:32px}
+.cap-text{font-size:.88rem;color:var(--gray2);line-height:1.45;padding-top:4px}
+
+/* Preço */
+.preco-box{background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.15);border-radius:20px;padding:48px 40px;text-align:center;max-width:560px;margin:0 auto 32px}
+.preco-badge{display:inline-block;background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.4);color:var(--gold2);font-size:.65rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;padding:6px 18px;border-radius:100px;margin-bottom:20px}
+.preco-info{font-size:.82rem;color:var(--gray);margin-bottom:24px;line-height:1.6}
+.preco-por{font-size:3rem;font-weight:900;color:var(--gold2);line-height:1;margin-bottom:28px}
+.selos{display:flex;justify-content:center;gap:24px;margin-top:20px;flex-wrap:wrap}
+.selo{font-size:.75rem;color:var(--gray);display:flex;align-items:center;gap:6px}
+.selo::before{content:"✓";color:var(--gold2);font-weight:900}
+
+/* Final CTA */
+.final-cta{background:linear-gradient(160deg,var(--dark2) 0%,var(--navy) 100%);text-align:center;padding:80px 20px}
+.final-cta h2{font-size:clamp(1.4rem,3.5vw,2.1rem);font-weight:800;margin-bottom:16px}
+.final-cta p{color:var(--gray);max-width:540px;margin:0 auto 16px;font-size:.97rem;line-height:1.75}
+
+@media(max-width:768px){
+  .quem-grid,.cap-grid,.dep-grid{grid-template-columns:1fr}
+  .preco-box{padding:36px 24px}
+  section{padding:60px 20px}
+  .destaque-box{padding:28px 24px}
+}
+@media(max-width:480px){
+  .btn{font-size:.85rem;padding:16px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-gradient"></div>
+
+  <div class="hero-book-desktop">
+    <div class="book-ph">
+      <div class="book-ph-label">ÉDERSON PORTO</div>
+      <div class="book-ph-title">TRIBUTAÇÃO DOS<br>INVESTIMENTOS</div>
+      <div class="book-ph-divider"></div>
+      <div class="book-ph-sub">Capa do livro</div>
+    </div>
+  </div>
+
+  <div class="hero-book-mobile">
+    <div class="book-ph-sm">
+      <div style="font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px">ÉDERSON PORTO</div>
+      <div style="width:24px;height:1.5px;background:var(--gold);margin:0 auto 8px"></div>
+      <div style="font-size:.68rem;font-weight:800;color:#fff;line-height:1.3">TRIBUTAÇÃO DOS<br>INVESTIMENTOS</div>
+    </div>
+  </div>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-brand">
+        <div class="hero-brand-icon">◈</div>
+        <div class="hero-brand-text">
+          <div class="hero-brand-label">ÉDERSON PORTO</div>
+          <div class="hero-brand-name">LIVRO FÍSICO</div>
+        </div>
+      </div>
+      <h1>Domine a tributação que incide sobre cada um dos seus <em>investimentos.</em></h1>
+      <p>Um guia completo, em linguagem direta, sobre como cada classe de ativos é tributada no Brasil, escrito para investidores em qualquer estágio da jornada.</p>
+      <a href="#oferta" class="btn">GARANTIR EXEMPLAR</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>OFERTA EXCLUSIVA POR TEMPO LIMITADO &bull; FRETE GRÁTIS &bull; EDIÇÃO ÚNICA E LIMITADA &bull; OFERTA EXCLUSIVA POR TEMPO LIMITADO &bull; FRETE GRÁTIS &bull; EDIÇÃO ÚNICA E LIMITADA &bull; </span>
+    <span>OFERTA EXCLUSIVA POR TEMPO LIMITADO &bull; FRETE GRÁTIS &bull; EDIÇÃO ÚNICA E LIMITADA &bull; OFERTA EXCLUSIVA POR TEMPO LIMITADO &bull; FRETE GRÁTIS &bull; EDIÇÃO ÚNICA E LIMITADA &bull; </span>
+  </div>
+</div>
+
+<!-- O LIVRO -->
+<section class="s-dark">
+  <div class="container">
+    <div class="divider-left"></div>
+    <h2 class="section-title">O LIVRO MAIS IMPORTANTE SOBRE <em>TRIBUTAÇÃO PARA O INVESTIDOR</em></h2>
+    <p class="section-sub">Cuidar do patrimônio e fazer com que ele preserve valor e gere rendimentos é uma preocupação comum a quem investe. As prateleiras estão cheias de livros que orientam o caminho dos primeiros aportes, e quase nenhum se debruça sobre o que acontece com esses resultados depois que a tributação entra em cena.</p>
+    <p class="section-sub">Cada produto financeiro disponível no mercado brasileiro tem um regime tributário próprio, com regras, prazos, alíquotas e exceções que podem alterar de forma significativa o retorno final de qualquer aplicação. Conhecer essas regras é parte indispensável de qualquer estratégia consistente.</p>
+    <p class="section-sub">Este livro foi escrito com a proposta de oferecer ao investidor uma referência clara, técnica e acessível, capaz de embasar decisões mais conscientes e proteger o resultado de quem trabalha para construir patrimônio.</p>
+    <br>
+    <a href="#oferta" class="btn">GARANTIR EXEMPLAR</a>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="s-darker">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title" style="text-align:center">Depoimentos</h2>
+    <br>
+    <div class="dep-grid">
+
+      <div class="dep-card">
+        <div class="dep-photo">◈</div>
+        <div class="dep-name">Cristiano Rosa de Carvalho</div>
+        <div class="dep-cargo">Livre-Docente em Direito Tributário (USP). Advogado tributarista.</div>
+        <p class="dep-text">"Um livro que se proponha a guiar o investidor frente ao enorme desafio que é o sistema tributário brasileiro é uma joia rara. E o faz com linguagem simples, direta e amigável, tanto para os que são leigos no mundo dos investimentos quanto para aqueles sem formação técnica em tributos. (...) A arte de comunicar conhecimento sobre temas complexos e sensíveis, conectando mercado e tributação, sustentada por profundo conhecimento teórico interdisciplinar e pragmatismo de quem opera no mundo real, é habilidade que poucos possuem. Eis aqui um perfeito exemplo disto."</p>
+      </div>
+
+      <div class="dep-card">
+        <div class="dep-photo">◈</div>
+        <div class="dep-name">Gabriel Picavea Torres</div>
+        <div class="dep-cargo">Presidente do IEE (2021–2022). Economista.</div>
+        <p class="dep-text">"Há um risco do qual muito pouca gente fala: o risco de jurisdição. Há o risco de a legislação ser alterada para modificar a tributação que incidirá sobre os ganhos do investidor e, em casos mais extremos, alterar até mesmo a propriedade desses ganhos. (...) Conhecer as regras do jogo a que o seu patrimônio está sujeito é o primeiro passo para entender de onde o risco pode vir. Este livro do Ederson Porto é um excelente primeiro passo para você entender que a diversificação verdadeira não ocorre apenas entre diferentes tipos de investimentos, mas também entre as diferentes legislações a que estão sujeitos."</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE O AUTOR -->
+<section class="s-light">
+  <div class="container">
+    <div class="quem-grid">
+
+      <div class="quem-ph">◈</div>
+
+      <div class="quem-content">
+        <div class="divider-left"></div>
+        <h2>Éderson Garin Porto</h2>
+        <p>Professor de Direito Tributário da UFRGS, doutor e mestre pela mesma instituição e Visiting Scholar pela UC Berkeley School of Law.</p>
+        <p>Atua como professor do Mestrado Profissional em Direito da Empresa e dos Negócios da Unisinos, onde também coordena o LLM em Tributação da Empresa e dos Negócios e a especialização em Direito e Gestão Tributária.</p>
+        <p>É professor convidado da Ambra University, em Orlando, e palestrante colaborador da Escola Superior da Advocacia (ESA, OAB/RS). Integra a Comissão Especial de Direito Tributário da OAB/RS e a Fundação Escola Superior de Direito Tributário (FESDT).</p>
+        <p>É fundador do Núcleo de Excelência LAWboratory da Unisinos e advogado-sócio do escritório Porto, Ustárroz &amp; Dall'ágnol.</p>
+        <p>Autor das obras: <strong>Compliance &amp; Governança Corporativa, Manual Jurídico da Startup, Manual da Execução Fiscal, A Colaboração no Direito Tributário e Estado de Direito e Direito Tributário.</strong></p>
+      </div>
+
+    </div>
+    <br><br>
+    <a href="#oferta" class="btn">GARANTIR EXEMPLAR</a>
+  </div>
+</section>
+
+<!-- MARQUEE 2 -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span>OFERTA EXCLUSIVA POR TEMPO LIMITADO &bull; FRETE GRÁTIS &bull; EDIÇÃO ÚNICA E LIMITADA &bull; OFERTA EXCLUSIVA POR TEMPO LIMITADO &bull; FRETE GRÁTIS &bull; EDIÇÃO ÚNICA E LIMITADA &bull; </span>
+    <span>OFERTA EXCLUSIVA POR TEMPO LIMITADO &bull; FRETE GRÁTIS &bull; EDIÇÃO ÚNICA E LIMITADA &bull; OFERTA EXCLUSIVA POR TEMPO LIMITADO &bull; FRETE GRÁTIS &bull; EDIÇÃO ÚNICA E LIMITADA &bull; </span>
+  </div>
+</div>
+
+<!-- CAPÍTULOS -->
+<section class="s-navy">
+  <div class="container">
+    <div class="divider"></div>
+    <h2 class="section-title" style="text-align:center">O que você vai encontrar <em>no livro?</em></h2>
+    <br>
+    <div class="cap-grid">
+      <div class="cap-card"><div class="cap-num">01</div><div class="cap-text">Os fundamentos do investidor</div></div>
+      <div class="cap-card"><div class="cap-num">02</div><div class="cap-text">Renda fixa: do CDB aos títulos isentos</div></div>
+      <div class="cap-card"><div class="cap-num">03</div><div class="cap-text">Tesouro Direto</div></div>
+      <div class="cap-card"><div class="cap-num">04</div><div class="cap-text">Fundos de investimento</div></div>
+      <div class="cap-card"><div class="cap-num">05</div><div class="cap-text">Imóveis e fundos imobiliários</div></div>
+      <div class="cap-card"><div class="cap-num">06</div><div class="cap-text">Planos de previdência: VGBL e PGBL</div></div>
+      <div class="cap-card"><div class="cap-num">07</div><div class="cap-text">Mercado de ações</div></div>
+      <div class="cap-card"><div class="cap-num">08</div><div class="cap-text">Debêntures</div></div>
+      <div class="cap-card"><div class="cap-num">09</div><div class="cap-text">Investimentos no exterior: ADRs, BDRs e ETFs</div></div>
+      <div class="cap-card"><div class="cap-num">10</div><div class="cap-text">Startups, Venture Capital e Private Equity</div></div>
+      <div class="cap-card" style="grid-column:1/-1;max-width:440px"><div class="cap-num">11</div><div class="cap-text">Criptoativos</div></div>
+    </div>
+    <a href="#oferta" class="btn">GARANTIR EXEMPLAR</a>
+  </div>
+</section>
+
+<!-- OFERTA -->
+<section class="s-dark" id="oferta">
+  <div class="container" style="text-align:center">
+    <div class="divider"></div>
+    <h2 class="section-title">O LIVRO MAIS IMPORTANTE SOBRE <em>TRIBUTAÇÃO PARA O INVESTIDOR</em></h2>
+    <p class="section-sub" style="max-width:680px;margin:0 auto 20px">Cuidar do patrimônio é uma preocupação comum a quem investe. O que poucos materiais abordam é a tributação que incide sobre cada produto financeiro, e a diferença que ela faz no resultado final.</p>
+    <p class="section-sub" style="max-width:680px;margin:0 auto 40px">Este livro reúne, em onze capítulos, o panorama completo da tributação dos investimentos no Brasil. Funciona como guia para quem está começando e como referência para quem investe há anos.</p>
+    <div class="preco-box">
+      <div class="preco-badge">OFERTA EXCLUSIVA &bull; POR TEMPO LIMITADO</div>
+      <div class="preco-info">Edição única, com tiragem reduzida. &nbsp;|&nbsp; Frete grátis para todo o Brasil.</div>
+      <div class="preco-por">R$ 97,00</div>
+      <a href="#" class="btn">GARANTIR EXEMPLAR</a>
+      <div class="selos">
+        <span class="selo">Compra segura</span>
+        <span class="selo">Frete grátis</span>
+        <span class="selo">Edição limitada</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container">
+    <h2>Desvende as regras tributárias que definem o resultado real da sua <em style="color:var(--gold2);font-style:normal">carteira.</em></h2>
+    <p>Um guia técnico e acessível sobre como cada classe de investimento é tributada no Brasil, útil para iniciantes e para quem investe há anos.</p>
+    <p>&nbsp;</p>
+    <a href="#oferta" class="btn" style="font-size:1.05rem;padding:20px 40px">GARANTIR EXEMPLAR</a>
+  </div>
+</section>
+
+</body>
+</html>
